@@ -1,0 +1,2 @@
+module FootTrafficAnalysisHelper
+end
