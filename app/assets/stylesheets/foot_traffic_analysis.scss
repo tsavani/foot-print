@@ -1,3 +1,29 @@
 // Place all the styles related to the foot_traffic_analysis controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+.result h1, .output{
+  padding-bottom: 20px;
+}
+
+.center-container {
+  text-align: left;
+}
+
+.alert {
+ font-weight: bold;
+ -moz-border-radius: 4px 4px 4px 4px;
+ -webkit-border-radius: 4px 4px 4px 4px;
+ border-radius: 4px 4px 4px 4px;
+ margin-bottom: 18px;
+ padding: 12px 25px 12px 24px;
+ -moz-box-shadow: 3px 3px 1px 1px #CCCCCC;
+ -webkit-box-shadow: 3px 3px 1px 1px #CCCCCC;
+ box-shadow: 3px 3px 1px 1px #CCCCCC;
+}
+
+.alert-error {
+    background-color: #f2dede;
+    border-color: #eed3d7;
+    color: #b94a48;
+    text-align: left;
+ }

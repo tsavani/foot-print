@@ -1,2 +1,7 @@
-<h1>FootTrafficAnalysis#index</h1>
-<p>Find me in app/views/foot_traffic_analysis/index.html.erb</p>
+<h5>Please upload log file!!!</h5>
+<%= form_tag({:action => :run}, multipart: true) do %>
+  <span class="btn btn-small btn-primary btn-inverse">
+    <%= file_field_tag :file %>
+    <%= submit_tag( "Submit file" ) %>
+  </span>
+<% end %>

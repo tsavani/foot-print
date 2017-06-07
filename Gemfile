@@ -29,13 +29,23 @@ gem 'jbuilder', '~> 2.5'
 # gem 'redis', '~> 3.0'
 # Use ActiveModel has_secure_password
 # gem 'bcrypt', '~> 3.1.7'
-
+gem 'bootstrap', git: 'https://github.com/twbs/bootstrap-rubygem'
+gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
+  gem 'rspec-rails', '3.5.0'
+  gem 'rspec', '3.5.0'
+  gem 'rspec-core', '3.5.0'
+  gem 'rspec-expectations', '3.5.0'
+  gem 'rspec-mocks', '3.5.0'
+  gem 'rspec-support', '3.5.0'
+
+  # Use Factory Girl for generating random test data
+  gem 'factory_girl_rails'
 end
 
 group :development do
@@ -45,6 +55,11 @@ group :development do
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
   gem 'spring-watcher-listen', '~> 2.0.0'
+
+  gem 'rubocop', '~> 0.49.1', require: false
+  gem 'rubocop-checkstyle_formatter', require: false
+
+  gem 'pry'
 end
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
