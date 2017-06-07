@@ -1,19 +1,11 @@
 class FootTrafficAnalysisController < ApplicationController
   def index
-    if params[:myfile].present?
-      begin
-        traffic_analysis = FootTrafficAnalysis.new(LogFile.new(params[:myfile]))
-        flash.now[:success] = 'Successfully parsed'
-        @output = traffic_analysis.print_report
-      rescue StandardError => e
-        redirect_to root_path, flash: { error: e.message }
-      end
-    end
+    process_file if params[:myfile].present?
   end
 
   def run
-    if is_file_present? && is_log_file?
-      redirect_to root_path(:myfile => params[:file].path)
+    if file_present? && log_file?
+      redirect_to root_path(myfile: params[:file].path)
     else
       redirect_to root_path, flash: { error: 'Something wrong, Please try after sometime or Please upload correct file' }
     end
@@ -21,11 +13,21 @@ class FootTrafficAnalysisController < ApplicationController
 
   private
 
-  def is_file_present?
+  def process_file
+    begin
+      traffic_analysis = FootTrafficAnalysis.new(LogFile.new(params[:myfile]))
+      flash.now[:success] = 'Successfully parsed'
+      @output = traffic_analysis.print_report
+    rescue StandardError => e
+      redirect_to root_path, flash: { error: e.message }
+    end
+  end
+
+  def file_present?
     params[:file].present?
   end
 
-  def is_log_file?
+  def log_file?
     params[:file].content_type == 'application/octet-stream'
   end
 end

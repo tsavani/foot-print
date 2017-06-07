@@ -2,7 +2,7 @@ require 'rails_helper'
 include LogFileHelper
 
 RSpec.describe LogFile do
-  let (:file) { 'file.log' }
+  let(:file) { 'file.log' }
 
   describe 'read log file' do
     subject { described_class.new file }
