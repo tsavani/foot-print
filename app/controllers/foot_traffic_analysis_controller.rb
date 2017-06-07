@@ -17,16 +17,19 @@ class FootTrafficAnalysisController < ApplicationController
     begin
       traffic_analysis = FootTrafficAnalysis.new(LogFile.new(params[:file]))
       flash.now[:success] = 'Successfully parsed'
-      traffic_analysis.print_report
+      traffic_analysis.generate_report
     rescue StandardError => e
       redirect_to root_path, flash: { error: e.message }
     end
   end
 
+  # check if file is present or not?
   def file_present?
     params[:file].present?
   end
 
+  # allow only '.log' file,
+  # In order to support CSV file: add Content-Type: text/csv
   def log_file?
     params[:file].content_type == 'application/octet-stream'
   end

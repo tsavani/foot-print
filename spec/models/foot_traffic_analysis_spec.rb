@@ -14,7 +14,7 @@ RSpec.describe FootTrafficAnalysis do
     end
 
     it 'print report correct report' do
-      expect(subject.print_report).to eq(result_sorted)
+      expect(subject.generate_report).to eq(result_sorted)
     end
   end
 end

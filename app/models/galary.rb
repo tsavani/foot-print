@@ -8,8 +8,9 @@ class Galary
     @records = records
   end
 
+  # build hash with all required data
   def build
-    results = {}
+    results = {} # This is where we store our data
     room_wise_visitors_group.each do |room, visit|
       results[room.to_i] = Room.new(visit).build
     end
@@ -18,15 +19,13 @@ class Galary
 
   private
 
+  # Now that we have all of the visits recorded, group them by room
   def room_wise_visitors_group
     visitors_log.group_by(&:room)
   end
 
   # @return
-  # [<Visitor:0x007fccc2abe488 @visitor=\"0\", @room=\"0\", @status=\"I\", @time=540>,
-  #  <Visitor:0x007fccc2abe398 @visitor=\"1\", @room=\"0\", @status=\"I\", @time=540>,
-  #  <Visitor:0x007fccc2abe2a8 @visitor=\"0\", @room=\"0\", @status=\"O\", @time=560>,
-  #  <Visitor:0x007fccc2abe1b8 @visitor=\"1\", @room=\"0\", @status=\"O\", @time=560>]"
+  # <Visitor:0x007fccc2abe488 @visitor=\"0\", @room=\"0\", @status=\"I\", @time=540>
   def visitors_log
     visitors = records.collect do |line|
       visitor_id, room_index, visitor_activity, timestemp = line.split

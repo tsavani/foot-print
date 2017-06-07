@@ -6,7 +6,7 @@ RSpec.describe FootTrafficAnalysisController, type: :controller do
     let(:file) { 'file.log' }
 
     before do
-      allow(FootTrafficAnalysis.new(LogFile.new(file))).to receive(:print_report).and_return(result_sorted)
+      allow(FootTrafficAnalysis.new(LogFile.new(file))).to receive(:generate_report).and_return(result_sorted)
     end
 
     it 'returns a success' do

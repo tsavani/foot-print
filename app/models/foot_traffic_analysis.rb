@@ -6,23 +6,23 @@ class FootTrafficAnalysis
     @logfile = logfile
   end
 
-  # [\"0 0 I 540\", \"1 0 I 540\", \"0 0 O 560\", \"1 0 O 560\"]
-  def print_report
+  def generate_report
     records = read_log_file
     results = Galary.new(records).build
-    display(results) # output
+    format_result(results) # sorting by room index, ascending
   end
 
   private
 
-  def display(results)
+  def format_result(results)
     output = []
-    results.keys.sort.each do |row|
+    results.keys.sort.each do |row| # Sort by room key
       output << results[row]
     end
     output
   end
 
+  # read file
   def read_log_file
     logfile.read
   end

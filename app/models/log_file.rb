@@ -5,8 +5,10 @@ class LogFile
     @file = file
   end
 
+  # @return
+  # [\"0 0 I 540\", \"1 0 I 540\", \"0 0 O 560\", \"1 0 O 560\"]
   def read
-    lines = read_file
+    lines = read_file # Get the number of lines to read
     lines.shift # remove first element
     lines
   end
