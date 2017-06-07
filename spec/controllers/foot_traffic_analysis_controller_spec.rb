@@ -16,7 +16,7 @@ RSpec.describe FootTrafficAnalysisController, type: :controller do
 
     it 'returns result' do
       get :index, params: { myfile: 'myfile.log' }
-      expect(response).to have_http_status(:found)
+      expect(response).to be_success
     end
   end
 
