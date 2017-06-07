@@ -1,7 +1,26 @@
-<h5>Please upload log file!!!</h5>
-<%= form_tag({:action => :run}, multipart: true) do %>
-  <span class="btn btn-small btn-primary btn-inverse">
-    <%= file_field_tag :file %>
-    <%= submit_tag( "Submit file" ) %>
-  </span>
+<div class="file-upload" >
+  <h5>Please upload log file!!!</h5>
+  <%=form_tag({:action => :run}, multipart: true) do %>
+    <span class="btn btn-small btn-primary btn-inverse">
+      <%= file_field_tag :file %>
+      <%= submit_tag( "Submit file" ) %>
+    </span>
+  <% end %>
+</div>
+
+<% if @output %>
+  <div class="result">
+    <h4>Foot Traffic Analysis Report
+        <span class="back-button">
+          <%= link_to 'Back', root_path, class: "btn btn-primary" %>
+        </span>
+    </h4>
+    <div class="output">
+      <ul>
+        <% @output.each do |u| %>
+          <li> <%= u %> </li>
+        <% end %>
+      </ul>
+    </div>
+  <div>
 <% end %>
