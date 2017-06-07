@@ -12,7 +12,7 @@ You will need the following things properly installed on your computer.
 * Ruby `ruby 2.4.0`
 * Rails `5.0.3`
 * Gem `2.6.8`
-* Bundler `version 1.14.5`
+* Bundler `version 1.15.1`
 
 
 --------------------------------------------------------
